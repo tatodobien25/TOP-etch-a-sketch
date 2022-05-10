@@ -17,10 +17,13 @@ function createDivsGrid(measurement) {
         let rowContainer = document.createElement('div');
         rowContainer.classList.add('row-container');
         canvasContainerDiv.appendChild(rowContainer);
+        for (let index = 0; index < measurement; index++) {
+            let divToBeAdded = document.createElement('div');
+            divToBeAdded.classList.add('added-to-row');
+            rowContainer.appendChild(divToBeAdded);
+
+        }
     }
 }
 
-createDivsRow(10);
-createDivsRow(10);
-
-createDivsGrid(20);
+createDivsGrid(16);

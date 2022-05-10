@@ -1,14 +1,9 @@
-body {
-    background-color: mediumpurple;
-}
-
-
 .added-to-row {
     display: inline-block;
     margin: 0;
-    height: 10px;
-    width: 10px;
-    border: 1px solid blue;
+    height: 21.875px;
+    width: 21.875px;
+    /* border: 1px solid blue; */
     box-sizing: border-box;
 
 }
@@ -16,19 +11,26 @@ body {
 .row-container {
     display: block;
     margin: 0;
-    height: 100px;
-    width: calc(10* height);
-    border: 1px solid darkgreen;
+    height: 21.875px;
+    width: 350px;
     box-sizing: border-box;
 }
 
 #canvas-container {
     box-sizing: border-box;
-
+    width: 352px;
+    height: 352px;
+    border: 2px solid lightslategray;
+    background: #e0e2e4;
+    margin: 15px auto;
 }
 
 #web-app-container {
     height: 100vh;
     width: auto;
-
+    background: #625750;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
