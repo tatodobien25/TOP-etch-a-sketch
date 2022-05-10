@@ -34,3 +34,11 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+.black {
+    background: black;
+}
+
+/* div.added-to-row:hover {
+    background-color: darkgreen;
+} */
