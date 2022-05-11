@@ -11,6 +11,7 @@
 .row-container {
     display: block;
     margin: 0;
+    padding: 0;
     height: 21.875px;
     width: 350px;
     box-sizing: border-box;
@@ -18,8 +19,8 @@
 
 #canvas-container {
     box-sizing: border-box;
-    width: 352px;
-    height: 352px;
+    width: 354px;
+    height: 354px;
     border: 2px solid lightslategray;
     background: #e0e2e4;
     margin: 15px auto;
