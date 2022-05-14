@@ -12,11 +12,22 @@
 <body>
     <div id="web-app-container">
         <header>
-            <h1>Welcome to <span class="hi-light">Etch-a-sketch</span></h1>
+            <h1>Welcome to <span class="hl">Etch-a-sketch</span></h1>
         </header>
-        <div id="canvas-container" onmouseenter="mouseEnterCanvasHandler()" onmouseleave="mouseLeaveCanvasHandler()">
-        </div>
+        <main>
+            <div class="controls" id="controls-bar">
+                <label for="size">Size (squares per side):</label>
+                <input id="size" type="range" name="size" min="10" max="64" value="16"
+                    onchange="sizeNumberChangeHandler()">
+                <label for="base">Pen Color</label>
+                <input id="base" type="color" name="base" value="#000000">
+            </div>
+            <div id="canvas-container" onmouseenter="mouseEnterCanvasHandler()"
+                onmouseleave="mouseLeaveCanvasHandler()">
+            </div>
+        </main>
     </div>
+
     <script src="script.js"></script>
 </body>
 
