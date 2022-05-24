@@ -16,15 +16,16 @@
         </header>
         <main>
             <div class="controls" id="controls-bar">
-                <label for="size">Size (squares per side):</label>
-                <input id="size" type="range" name="size" min="10" max="64" value="16"
-                    onchange="sizeNumberChangeHandler()">
+                <label for="size" id="size-label">Size (squares per side): 16 x 16</label>
+                <input id="size" type="range" name="size" min="10" max="32" value="16">
                 <label for="base">Pen Color</label>
                 <input id="base" type="color" name="base" value="#000000">
+                <br>
+                <button id="random-color-btn">Toggle Random Color</button><br>
+                <p id="random-color-status"></p>
+
             </div>
-            <div id="canvas-container" onmouseenter="mouseEnterCanvasHandler()"
-                onmouseleave="mouseLeaveCanvasHandler()">
-            </div>
+            <div id="canvas-container" draggable="false"></div>
         </main>
     </div>
 

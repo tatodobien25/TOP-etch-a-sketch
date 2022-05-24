@@ -25,17 +25,31 @@ function removeAllChildNodes(parent) {
 
 function mouseDownOnPixelDiv() {
     clickStatus = true;
-    this.style.background = `${baseColor.value}`;
+    if (randomColorStatus) {
+        this.style.background = rndCol;
+    } else {
+        this.style.background = `${baseColor.value}`;
+    }
 }
 
 function mouseUpOnPixelDiv() {
     clickStatus = false;
-    this.style.background = `${baseColor.value}`;
+    if (randomColorStatus) {
+        this.style.background = rndCol;
+    } else {
+        this.style.background = `${baseColor.value}`;
+    }
+    // this.style.background = `${baseColor.value}`;
 }
 
 function mouseOverPixelDiv() {
     if (clickStatus) {
-        this.style.background = `${baseColor.value}`;
+        if (randomColorStatus) {
+            this.style.background = rndCol;
+        } else {
+            this.style.background = `${baseColor.value}`;
+        }
+        // this.style.background = `${baseColor.value}`;
     } else return;
 }
 
@@ -59,23 +73,48 @@ function mouseLeaveCanvasHandler() {
 
 function sizeNumberChangeHandler() {
     createDivsGrid(sizeInput.value);
+    sizeLabel.textContent = `Size (squares per side): ${sizeInput.value} x ${sizeInput.value}`;
 }
 
-// function baseColorChangeHandler() {
-//     penColor = document.querySelector('input#base').value;
-//     console.log(penColor);
-// }
+function baseColorChangeHandler() {
+    hiLiteText.style.color = `${baseColor.value}`;
+}
+
+function random(number) {
+    return Math.floor(Math.random() * (number + 1));
+}
+
+function toggleRandomColor() {
+    if (randomColorStatus === true) {
+        randomColorStatus = false;
+
+    } else {
+        randomColorStatus = true;
+    }
+    console.log(randomColorStatus);
+
+}
+
 
 const canvasContainerDiv = document.getElementById('canvas-container');
 const webAppContainer = document.getElementById('web-app-container');
 const lastCreatedDiv = document.createElement('div');
-let divPixelHeight = '21.875px';
-let divPixelWidth = divPixelHeight;
-let clickStatus = false;
 const sizeInput = document.getElementById('size');
 const baseColor = document.querySelector('input#base');
 const divsWithinCanvas = document.querySelectorAll('div.added-to-row');
+const sizeLabel = document.getElementById('size-label');
+const hiLiteText = document.querySelector('span.hl');
+const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+const randomColorButton = document.getElementById('random-color-btn');
 
+let divPixelHeight = '21.875px';
+let divPixelWidth = divPixelHeight;
+let clickStatus = false;
+let randomColorStatus = false;
 
+canvasContainerDiv.addEventListener('mouseenter', mouseEnterCanvasHandler);
+canvasContainerDiv.addEventListener('mouseleave', mouseLeaveCanvasHandler);
+sizeInput.addEventListener('change', sizeNumberChangeHandler);
+baseColor.addEventListener('input', baseColorChangeHandler);
+randomColorButton.addEventListener('click', toggleRandomColor);
 createDivsGrid(sizeInput.value);
-console.log(baseColor);
