@@ -25,8 +25,11 @@ function removeAllChildNodes(parent) {
 
 function mouseDownOnPixelDiv() {
     clickStatus = true;
+    const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     if (randomColorStatus) {
         this.style.background = rndCol;
+        hiLiteText.style.color = rndCol;
+
     } else {
         this.style.background = `${baseColor.value}`;
     }
@@ -34,22 +37,23 @@ function mouseDownOnPixelDiv() {
 
 function mouseUpOnPixelDiv() {
     clickStatus = false;
+    const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     if (randomColorStatus) {
         this.style.background = rndCol;
     } else {
         this.style.background = `${baseColor.value}`;
     }
-    // this.style.background = `${baseColor.value}`;
 }
 
 function mouseOverPixelDiv() {
     if (clickStatus) {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
         if (randomColorStatus) {
             this.style.background = rndCol;
+            hiLiteText.style.color = rndCol;
         } else {
             this.style.background = `${baseColor.value}`;
         }
-        // this.style.background = `${baseColor.value}`;
     } else return;
 }
 
@@ -87,11 +91,13 @@ function random(number) {
 function toggleRandomColor() {
     if (randomColorStatus === true) {
         randomColorStatus = false;
+        randomColorPara.textContent = `Random Color is OFF`;
 
     } else {
         randomColorStatus = true;
+        randomColorPara.textContent = `Random Color is ON`;
     }
-    console.log(randomColorStatus);
+
 
 }
 
@@ -104,8 +110,8 @@ const baseColor = document.querySelector('input#base');
 const divsWithinCanvas = document.querySelectorAll('div.added-to-row');
 const sizeLabel = document.getElementById('size-label');
 const hiLiteText = document.querySelector('span.hl');
-const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
 const randomColorButton = document.getElementById('random-color-btn');
+const randomColorPara = document.getElementById('random-color-status');
 
 let divPixelHeight = '21.875px';
 let divPixelWidth = divPixelHeight;

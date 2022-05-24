@@ -16,10 +16,7 @@ main {
 .added-to-row {
     display: inline-block;
     margin: 0;
-    /* height: 21.875px; */
-    /* width: 21.875px; */
     box-sizing: border-box;
-    border: 1px solid darkgray;
 
 }
 
